@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { User } from '../model/user.model';
 import { UserService } from '../services/user.service';
 import * as $ from 'jquery';
@@ -34,7 +34,16 @@ export class RegisterComponent implements OnInit {
     console.log("hi this is save function");
     console.log(this.user);
     this.service.add(this.user);
-    this.router.navigate(['profile']);
+
+    const navigationExtras : NavigationExtras = {
+      state:{
+        name        : Object(this.user).name,
+        mobile      : Object(this.user).mobile,
+        dob         : Object(this.user).dob,
+        email       : Object(this.user).email,
+      }
+    }
+    this.router.navigate(['profile/dashboard'],navigationExtras);
   }
 
 }

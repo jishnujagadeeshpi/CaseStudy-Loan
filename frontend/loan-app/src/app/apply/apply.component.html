@@ -1,0 +1,37 @@
+<form class="was-validated" #addFrm="ngForm">
+
+    <div class="form-group">
+        <label for="address"><b> Address :</b></label>
+        <input class="form-control" name = "address" required>
+        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
+    </div> <br>
+
+    <div class="form-group">
+        <label for="nationality"><b> Nationality :</b></label>
+        <input class="form-control" name = "nationality" required>
+        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
+    </div> <br>
+
+    <div class="mb-3">
+        <label for="photo" class="form-label"><b> Size Photo :  </b></label>
+        <input class="form-control form-control-sm" id="photo" type="file" accept="application/jpeg" required>
+    </div> <br>
+
+    <div class="mb-3">
+        <label for="empCert" class="form-label"><b> Employee Certificate : </b></label>
+        <input class="form-control form-control-sm" id="empCert" type="file" name="empCert" accept="application/pdf" required>
+    </div> <br>
+
+    <div class="mb-3">
+        <label class="form-label" for="aadhaar"><b> Aadhaar Card : </b></label>
+        <input class="form-control form-control-sm" id="aadhaar" type="file" name="aadhaar" accept="application/pdf" required>
+    </div> <br>
+
+
+    <div class="form-group">
+        <label for="amount"><b> Amount Required : </b></label>
+        <input class="form-control" type="text" name="amount" pattern="[0-9]" required>
+    </div> <br>
+    <br>
+    <button type="submit"  class="btn btn-primary">Submit</button>
+</form>

@@ -7,22 +7,22 @@
           <h5 class="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
           <form (ngSubmit) = "save()">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingInput" name="username" [(ngModel)] = "user.name"  placeholder="Username" >
+              <input type="text" class="form-control" id="username" name="username" [(ngModel)] = "user.name"  placeholder="Username" >
               <label for="floatingInput">Username</label>
             </div>
 
             <div class="form-floating mb-3">
-              <input type="date" class="form-control" id="floatingInput" name="dob" [(ngModel)] = "user.dob" placeholder="Date of Birth">
+              <input type="date" class="form-control" id="dob" name="dob" [(ngModel)] = "user.dob" placeholder="Date of Birth">
               <label for="floatingInput">Date of Birth</label>
             </div>
 
             <div class="form-floating mb-3">
-              <input type="tel" class="form-control" id="floatingInput" name="mobile" [(ngModel)] = "user.mobile" placeholder="Mobile">
+              <input type="tel" class="form-control" id="mobile" name="mobile" [(ngModel)] = "user.mobile" placeholder="Mobile">
               <label for="floatingInput">Mobile</label>
             </div>
 
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" name="email" [(ngModel)] = "user.email" placeholder="Email">
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)] = "user.email" placeholder="Email">
               <label for="floatingInput">Email</label>
             </div>
 

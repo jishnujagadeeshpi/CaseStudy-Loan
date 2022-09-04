@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div>
+    <div>
+        <table>
+            <tr>
+                <th>Loan Slab</th><th>Interest Rates</th>
+            </tr>
+    
+            <tr>
+                <td>For Women* (Upto 30 Lakh)</td> 
+                <td>8.10% to 8.60%</td>
+            </tr>
+            <tr>
+                <td>For Others* (Upto 30 Lakh)</td>
+                <td>8.15% to 8.65%</td>
+            </tr>
+            <tr>
+                <td>For Women* (30.01 Lakhs to 75 Lakhs)</td>
+                <td>8.35% to 8.85%</td>
+            </tr>
+            <tr>
+                <td>For Others* (30.01 Lakhs to 75 Lakhs)</td>
+                <td>8.40% to 8.90%</td>
+            </tr>
+            <tr>
+                <td>For Women* (75.01 Lakhs & Above)</td>
+                <td>8.45% to 8.95%</td>
+            </tr>
+            <tr>
+                <td>For Others* (75.01 Lakhs & Above)</td>
+                <td> 8.50% to 9.00%</td>
+            </tr>
+        </table>
+
+        <hr style="border-width: 150;">  
+    </div>
+    <!-- <h2 style="text-align:center">User Profile Card</h2> -->
+    
+    <div class="card" style="position:absolute; right:0; top:0; bottom:0;" >
+      <img src="https://www.seekpng.com/png/detail/966-9665493_my-profile-icon-blank-profile-image-circle.png" alt="John" style="width:100%"><br>
+      <h1>{{getDetails().name}}</h1>
+      <p class="title">{{getDetails().empId}}</p>
+      <p>{{getDetails().address}}</p>
+      <div style="margin: 24px 0;">
+        <p>Date of Birth : {{getDetails().dob}}</p>
+        <p>Nationality : {{getDetails().nationality}}</p>
+        <p>Email Id : {{getDetails().email}}</p>
+        <p>Mobile : {{getDetails().mobile}}</p>
+        <p>Status : {{getDetails().status}}</p> 
+      </div>
+    </div>  
+    
+</div>
+
+
+
+<button class="btn btn-primary"><a [routerLink] = "['../apply']">Apply</a></button>
+
+
+
+
+<router-outlet></router-outlet>

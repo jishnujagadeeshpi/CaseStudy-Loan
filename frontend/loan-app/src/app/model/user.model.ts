@@ -8,3 +8,10 @@ export class User{
         public cnfPassword : string = ""
     ){}
 }
+
+export class LoginUser{
+    constructor(
+        public name : string = "",
+        public password : string = ""
+    ){}
+}
