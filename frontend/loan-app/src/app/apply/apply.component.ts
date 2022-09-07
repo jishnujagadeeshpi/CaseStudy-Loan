@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { applyDetails, User } from '../model/user.model';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-apply',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./apply.component.css']
 })
 export class ApplyComponent implements OnInit {
+  applyDet : applyDetails = new applyDetails();
 
-  constructor() { }
+  constructor(private service : UserService, private router : Router) { }
 
   ngOnInit(): void {
   }
 
+  apply(){
+    console.log(this.applyDet);
+    // this.service.update(this.applyDet);
+  }
 }

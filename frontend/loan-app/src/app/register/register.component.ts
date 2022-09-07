@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
   }
 
   save(){
-    console.log("hi this is save function");
+    // console.log("hi this is save function");
     console.log(this.user);
     this.service.add(this.user);
 

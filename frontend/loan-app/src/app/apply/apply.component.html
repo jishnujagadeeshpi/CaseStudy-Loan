@@ -1,36 +1,36 @@
-<form class="was-validated" #addFrm="ngForm">
+<form (ngSubmit) = "apply()"  class="was-validated" #addFrm="ngForm">
 
     <div class="form-group">
         <label for="address"><b> Address :</b></label>
-        <input class="form-control" name = "address" required>
+        <input class="form-control" name = "address" [(ngModel)] = "applyDet.address" required>
         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
     </div> <br>
 
     <div class="form-group">
         <label for="nationality"><b> Nationality :</b></label>
-        <input class="form-control" name = "nationality" required>
+        <input class="form-control" name = "nationality" [(ngModel)] = "applyDet.nationality" required>
         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
     </div> <br>
 
     <div class="mb-3">
-        <label for="photo" class="form-label"><b> Size Photo :  </b></label>
-        <input class="form-control form-control-sm" id="photo" type="file" accept="application/jpeg" required>
+        <label for="empId" class="form-label"><b> Employee ID : </b></label>
+        <input class="form-control form-control-sm" id="empId" type="text" name="empId" [(ngModel)] = "applyDet.empId" required>
     </div> <br>
 
     <div class="mb-3">
-        <label for="empCert" class="form-label"><b> Employee Certificate : </b></label>
-        <input class="form-control form-control-sm" id="empCert" type="file" name="empCert" accept="application/pdf" required>
+        <label class="form-label" for="aadhaar"><b> Aadhaar Card Number : </b></label>
+        <input class="form-control form-control-sm" id="aadhaar" type="text" name="aadhaar"  [(ngModel)] = "applyDet.aadhaar" required>
     </div> <br>
 
     <div class="mb-3">
-        <label class="form-label" for="aadhaar"><b> Aadhaar Card : </b></label>
-        <input class="form-control form-control-sm" id="aadhaar" type="file" name="aadhaar" accept="application/pdf" required>
+        <label class="form-label" for="pan"><b> PAN Card Number : </b></label>
+        <input class="form-control form-control-sm" id="pan" type="text" name="pan"  [(ngModel)] = "applyDet.pan" required>
     </div> <br>
 
 
     <div class="form-group">
         <label for="amount"><b> Amount Required : </b></label>
-        <input class="form-control" type="text" name="amount" pattern="[0-9]" required>
+        <input class="form-control" type="text" name="amount" pattern="[0-9]" [(ngModel)] = "applyDet.amount" required>
     </div> <br>
     <br>
     <button type="submit"  class="btn btn-primary">Submit</button>

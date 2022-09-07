@@ -5,7 +5,7 @@ export class User{
         public mobile : string = "",
         public email : string = "",
         public password : string = "",
-        public cnfPassword : string = ""
+        public cnfPassword : string = "",
     ){}
 }
 
@@ -13,5 +13,16 @@ export class LoginUser{
     constructor(
         public name : string = "",
         public password : string = ""
+    ){}
+}
+
+export class applyDetails{
+    constructor(
+        public address : string = "",
+        public nationality : string = "",
+        public aadhaar : string = "",
+        public empId : string = "",
+        public amount : string = "",
+        public pan : string = ""
     ){}
 }
