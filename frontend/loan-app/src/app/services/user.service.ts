@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { applyDetails, LoginUser, User } from '../model/user.model';
-import * as jwt from 'jsonwebtoken';
+// import * as jwt from 'jsonwebtoken';
 // import * as jwt from 'jsonwebtoken';
 
 @Injectable({
@@ -21,8 +21,8 @@ export class UserService {
     
     await this.http.post(UserService.url + "/checkLogin", login).subscribe(data => {
       let username = Object(data)[0].name;
-      let token  = jwt.sign(username,"secret");
-      console.log(token);
+      // let token  = jwt.sign(username,"secret");
+      // console.log(token);
       console.log(typeof(data));
       try {
         console.log("try")
