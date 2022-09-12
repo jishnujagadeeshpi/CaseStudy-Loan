@@ -6,6 +6,13 @@ export class User{
         public email : string = "",
         public password : string = "",
         public cnfPassword : string = "",
+        public address : string = "",
+        public nationality : string = "",
+        public aadhaar : string = "",
+        public empId : string = "",
+        public amount : string = "",
+        public pan : string = "",
+        public status : string =''
     ){}
 }
 
@@ -26,3 +33,4 @@ export class applyDetails{
         public pan : string = ""
     ){}
 }
+

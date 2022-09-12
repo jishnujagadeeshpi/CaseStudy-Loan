@@ -38,17 +38,18 @@
     </div>
     <!-- <h2 style="text-align:center">User Profile Card</h2> -->
     
-    <div class="card" style="position:absolute; right:0; top:0; bottom:0;" >
+    <div class="card" style="position:absolute; right:0; top:0; bottom:0;" *ngFor="let item of users">
       <img src="https://www.seekpng.com/png/detail/966-9665493_my-profile-icon-blank-profile-image-circle.png" alt="John" style="width:100%"><br>
-      <h1>{{getDetails().name}}</h1>
-      <p class="title">{{getDetails().empId}}</p>
-      <p>{{getDetails().address}}</p>
+      
+      <h1>{{item.name}}</h1>
+      <p class="title">{{item.empId}}</p>
+      <p>{{item.address}}</p>
       <div style="margin: 24px 0;">
-        <p>Date of Birth : {{getDetails().dob}}</p>
-        <p>Nationality : {{getDetails().nationality}}</p>
-        <p>Email Id : {{getDetails().email}}</p>
-        <p>Mobile : {{getDetails().mobile}}</p>
-        <p>Status : {{getDetails().status}}</p> 
+        <p>Date of Birth : {{item.dob}}</p>
+        <p>Nationality : {{item.nationality}}</p>
+        <p>Email Id : {{item.email}}</p>
+        <p>Mobile : {{item.mobile}}</p>
+        <p>Status : {{item.status}}</p> 
       </div>
     </div>  
     

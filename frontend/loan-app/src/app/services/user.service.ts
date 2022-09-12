@@ -1,9 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { applyDetails, LoginUser, User } from '../model/user.model';
-// import * as jwt from 'jsonwebtoken';
-// import * as jwt from 'jsonwebtoken';
+import { TokenStorageService } from './token-storage.service';
+// import { TokenStorageServiceService } from './token-storage-service.service';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -11,50 +17,20 @@ import { applyDetails, LoginUser, User } from '../model/user.model';
 export class UserService {
 
   private static url : string = "http://localhost:8880";
-  constructor(private http : HttpClient, private router : Router) { }
+  constructor(private http : HttpClient) { }
 
   add(user : User){
     this.http.post(UserService.url + "/addUser", user).subscribe(data => data = user);
   }
 
-  async login(login : LoginUser){
-    
-    await this.http.post(UserService.url + "/checkLogin", login).subscribe(data => {
-      let username = Object(data)[0].name;
-      // let token  = jwt.sign(username,"secret");
-      // console.log(token);
-      console.log(typeof(data));
-      try {
-        console.log("try")
-        if(data){
-          console.log("inside if")
-        console.log(data);
-        this.router.navigate(['profile/dashboard']);
-      }
-      else{
-        console.log("else");
-        this.router.navigate(['login']);
-      }
+  async login(login : LoginUser) : Promise<Observable<any>>{
+    console.log("after submit")
+    return await this.http.post(UserService.url + "/checkLogin", login);
+}
 
-      } catch (error) {
-        console.log(error);
-      }
-      
-      
-        // const navigationExtras : NavigationExtras = {
-        //   state:{
-        //     name        : Object(data)[0].name,
-        //     mobile      : Object(data)[0].mobile,
-        //     address     : Object(data)[0].address,
-        //     dob         : Object(data)[0].dob,
-        //     email       : Object(data)[0].email,
-        //     empId       : Object(data)[0].empId,
-        //     nationality : Object(data)[0].nationality,
-        //     status      : Object(data)[0].status,
-        //   }
-        // }
-        
-    });
+
+  async profile(username : String | null){
+    return await this.http.get<User[]>(UserService.url + "/profile/dashboard?username=" + username);
   }
 
   update(applyDet : applyDetails){
