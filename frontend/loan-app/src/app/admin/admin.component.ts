@@ -16,11 +16,9 @@ export class AdminComponent implements OnInit {
     this.service.list().then(applicants => applicants.subscribe(data => this.users = data))
   }
 
-  approve(){
-    console.log("approved");
-  }
-
-  reject(){
-    console.log("rejected");
+  action(name:String, decision : String){
+    var ans = confirm("Are you sure you want to " + decision + "??")
+    if(ans)
+      this.service.action(name,decision);
   }
 }

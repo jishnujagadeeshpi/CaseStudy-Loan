@@ -19,7 +19,8 @@ export class User{
 export class LoginUser{
     constructor(
         public name : string = "",
-        public password : string = ""
+        public password : string = "",
+        public role : string = ""
     ){}
 }
 

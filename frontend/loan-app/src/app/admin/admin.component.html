@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <table class="table table-bordered">
     <tr>
@@ -16,17 +14,17 @@
         <th style="text-align:center;">Action</th>
     </tr>
 
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button class="btn btn-danger" (click) = "approve()">Approve</button> <button class="btn btn-danger" (click) = "reject()">Reject</button></td>
+    <tr let *ngFor = "let a of users;">
+        <td>{{a.name}}</td>
+        <td>{{a.dob}}</td>
+        <td>{{a.mobile}}</td>
+        <td>{{a.email}}</td>
+        <td>{{a.address}}</td>
+        <td>{{a.nationality}}</td>
+        <td>{{a.empId}}</td>
+        <td>{{a.aadhaar}}</td>
+        <td>{{a.amount}}</td>
+        <td>{{a.status}}</td>
+        <td><button class="btn btn-danger" (click) = "action(a.name,'approve')">Approve</button> <button class="btn btn-danger" (click) = "action(a.name,'reject')">Reject</button></td>
     </tr>
 </table>

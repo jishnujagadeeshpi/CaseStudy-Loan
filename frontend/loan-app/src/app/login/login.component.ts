@@ -26,27 +26,39 @@ export class LoginComponent implements OnInit {
   }
 
   async checkLogin(){
-    (await this.service.login(this.login)).subscribe(data =>{
+    if(this.login.role == "admin"){
+      (await this.service.loginAdmin(this.login)).subscribe(data => {
+        if(data)
+          this.router.navigate(['adminPage'])
+        else
+          window.location.reload();
 
-      if(Object(data).length == 1) {
-        this.tokenStorage.saveToken(data[0].accessToken);
-        this.tokenStorage.saveUser(data[0].userData);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
+      })
+    }
+    else{
+      (await this.service.login(this.login)).subscribe(data =>{
 
-        this.router.navigate(['/profile/dashboard']);
-
-      }
-      else{
-        this.errorMessage = "Login Failed";
+        if(Object(data).length == 1) {
+          this.tokenStorage.saveToken(data[0].accessToken);
+          this.tokenStorage.saveUser(data[0].userData);
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+  
+          this.router.navigate(['/profile/dashboard']);
+  
+        }
+        else{
+          this.errorMessage = "Login Failed";
+          this.isLoginFailed = true;
+          window.location.reload();
+        }
+      },
+      err => {
+        this.errorMessage = err.error.message;
         this.isLoginFailed = true;
-        window.location.reload();
-      }
-    },
-    err => {
-      this.errorMessage = err.error.message;
-      this.isLoginFailed = true;
-    })
+      })
+    }
+    
   }
 
 }

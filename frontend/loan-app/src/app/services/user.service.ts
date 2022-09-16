@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { data } from 'jquery';
 import { Observable } from 'rxjs';
 import { applyDetails, LoginUser, User } from '../model/user.model';
 import { TokenStorageService } from './token-storage.service';
@@ -27,6 +28,10 @@ export class UserService {
     console.log("after submit")
     return await this.http.post(UserService.url + "/checkLogin", login);
 }
+  
+  async loginAdmin(login : LoginUser) : Promise<Observable<any>>{
+    return await this.http.post(UserService.url + "/checkAdmin",login);
+  }
 
 
   async profile(username : String | null){
@@ -40,6 +45,16 @@ export class UserService {
 
   async list(){
     // return this.flights;
-    return await this.http.get<User[]>(UserService.url + "/applicants");
+    return await this.http.get<User[]>(UserService.url + "/adminPage");
+  }
+
+  action(name:String, decision : String){
+    var object = {
+      name : name,
+      status : decision
+    }
+    console.log(object);
+    this.http.post(UserService.url + "/adminPage/decision",object).subscribe(data => data = object);
+    window.location.reload();
   }
 }
