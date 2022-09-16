@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { ApplyComponent } from './apply/apply.component';
+import { AdminComponent } from './admin/admin.component';
 
 // import {MatDatepickerModule} from '@angular/material';
 
@@ -21,7 +22,8 @@ import { ApplyComponent } from './apply/apply.component';
     RegisterComponent,
     UserComponent,
     ProfileComponent,
-    ApplyComponent
+    ApplyComponent,
+    AdminComponent
     
   ],
   imports: [

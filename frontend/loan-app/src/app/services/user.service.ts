@@ -17,7 +17,7 @@ const httpOptions = {
 export class UserService {
 
   private static url : string = "http://localhost:8880";
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private tokenManager : TokenStorageService) { }
 
   add(user : User){
     this.http.post(UserService.url + "/addUser", user).subscribe(data => data = user);
@@ -33,7 +33,8 @@ export class UserService {
     return await this.http.get<User[]>(UserService.url + "/profile/dashboard?username=" + username);
   }
 
-  update(applyDet : applyDetails){
-    this.http.put(UserService.url + "/apply",applyDet).subscribe(data => data = applyDet);
+  update(user : User){
+    user.name = Object(this.tokenManager.getUser())[0].name;
+    this.http.post(UserService.url + "/profile/apply/updateUser",user).subscribe(data => data = user);
   }
 }

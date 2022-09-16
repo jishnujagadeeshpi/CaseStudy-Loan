@@ -2,35 +2,35 @@
 
     <div class="form-group">
         <label for="address"><b> Address :</b></label>
-        <input class="form-control" name = "address" [(ngModel)] = "applyDet.address" required>
+        <input class="form-control" name = "address" [(ngModel)] = "user.address" required>
         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
     </div> <br>
 
     <div class="form-group">
         <label for="nationality"><b> Nationality :</b></label>
-        <input class="form-control" name = "nationality" [(ngModel)] = "applyDet.nationality" required>
+        <input class="form-control" name = "nationality" [(ngModel)] = "user.nationality" required>
         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
     </div> <br>
 
     <div class="mb-3">
         <label for="empId" class="form-label"><b> Employee ID : </b></label>
-        <input class="form-control form-control-sm" id="empId" type="text" name="empId" [(ngModel)] = "applyDet.empId" required>
+        <input class="form-control form-control-sm" id="empId" type="text" name="empId" [(ngModel)] = "user.empId" required>
     </div> <br>
 
     <div class="mb-3">
         <label class="form-label" for="aadhaar"><b> Aadhaar Card Number : </b></label>
-        <input class="form-control form-control-sm" id="aadhaar" type="text" name="aadhaar"  [(ngModel)] = "applyDet.aadhaar" required>
+        <input class="form-control form-control-sm" id="aadhaar" type="text" name="aadhaar"  [(ngModel)] = "user.aadhaar" required>
     </div> <br>
 
     <div class="mb-3">
         <label class="form-label" for="pan"><b> PAN Card Number : </b></label>
-        <input class="form-control form-control-sm" id="pan" type="text" name="pan"  [(ngModel)] = "applyDet.pan" required>
+        <input class="form-control form-control-sm" id="pan" type="text" name="pan"  [(ngModel)] = "user.pan" required>
     </div> <br>
 
 
     <div class="form-group">
         <label for="amount"><b> Amount Required : </b></label>
-        <input class="form-control" type="text" name="amount" pattern="[0-9]" [(ngModel)] = "applyDet.amount" required>
+        <input class="form-control" type="text" name="amount" pattern="[0-9]" [(ngModel)] = "user.amount" required>
     </div> <br>
     <br>
     <button type="submit"  class="btn btn-primary">Submit</button>

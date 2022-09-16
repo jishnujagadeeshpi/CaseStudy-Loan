@@ -9,7 +9,8 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./apply.component.css']
 })
 export class ApplyComponent implements OnInit {
-  applyDet : applyDetails = new applyDetails();
+  // applyDet : applyDetails = new applyDetails();
+  user : User = new User();
 
   constructor(private service : UserService, private router : Router) { }
 
@@ -17,7 +18,7 @@ export class ApplyComponent implements OnInit {
   }
 
   apply(){
-    console.log(this.applyDet);
-    // this.service.update(this.applyDet);
+    console.log(this.user);
+    this.service.update(this.user);
   }
 }
