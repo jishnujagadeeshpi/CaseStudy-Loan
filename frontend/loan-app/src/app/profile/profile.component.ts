@@ -16,9 +16,8 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void{
     var user = this.tokenManager.getUser();
-    var username = Object(user)[0].name;
+    var username = Object(user[0]).name != undefined ? Object(user)[0].name : user.name;
     this.service.profile(username).then(user => user.subscribe(data => this.users = data));
-    console.log(this.users);
   }
 
   getDetails(token : String){

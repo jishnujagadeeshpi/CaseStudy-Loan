@@ -20,8 +20,8 @@ export class UserService {
   private static url : string = "http://localhost:8880";
   constructor(private http : HttpClient, private tokenManager : TokenStorageService) { }
 
-  add(user : User){
-    this.http.post(UserService.url + "/addUser", user).subscribe(data => data = user);
+  async add(user : User) : Promise<Observable<any>>{
+    return await this.http.post(UserService.url + "/addUser", user);
   }
 
   async login(login : LoginUser) : Promise<Observable<any>>{
@@ -39,7 +39,8 @@ export class UserService {
   }
 
   update(user : User){
-    user.name = Object(this.tokenManager.getUser())[0].name;
+    user.name = Object(this.tokenManager.getUser())[0].name != undefined ? Object(this.tokenManager.getUser())[0].name : this.tokenManager.getUser.name;
+
     this.http.post(UserService.url + "/profile/apply/updateUser",user).subscribe(data => data = user);
   }
 
