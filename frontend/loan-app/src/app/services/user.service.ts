@@ -37,4 +37,9 @@ export class UserService {
     user.name = Object(this.tokenManager.getUser())[0].name;
     this.http.post(UserService.url + "/profile/apply/updateUser",user).subscribe(data => data = user);
   }
+
+  async list(){
+    // return this.flights;
+    return await this.http.get<User[]>(UserService.url + "/applicants");
+  }
 }
